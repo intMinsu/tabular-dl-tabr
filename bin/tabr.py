@@ -370,7 +370,9 @@ def main(
     optimizer = lib.make_optimizer(
         model, **C.optimizer, zero_weight_decay_condition=zero_wd_condition
     )
-    loss_fn = lib.get_loss_fn(dataset.task_type)
+    loss_fn = lib.get_loss_fn(dataset.task_type, rncloss=True)
+    print("LOSS")
+    print(loss_fn)
 
     train_size = dataset.size('train')
     train_indices = torch.arange(train_size, device=device)
@@ -474,7 +476,6 @@ def main(
         lib.dump_report(report, output)
         lib.backup_output(output)
 
-    print()
     timer = lib.run_timer()
     while epoch < C.n_epochs:
         print(f'[...] {lib.try_get_relative_path(output)} | {timer}')

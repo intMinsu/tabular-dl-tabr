@@ -1,0 +1,71 @@
+{
+    "function": "bin.tabr.main",
+    "gpus": [
+        "NVIDIA GeForce RTX 3090"
+    ],
+    "config": {
+        "seed": 3,
+        "batch_size": 256,
+        "patience": 16,
+        "n_epochs": Infinity,
+        "context_size": 96,
+        "data": {
+            "seed": 22,
+            "cache": true,
+            "path": ":data/sait-submission",
+            "num_policy": "quantile",
+            "cat_policy": null,
+            "y_policy": "standard"
+        },
+        "model": {
+            "d_main": 310,
+            "context_dropout": 0.21059390154453766,
+            "d_multiplier": 2.0,
+            "encoder_n_blocks": 0,
+            "predictor_n_blocks": 2,
+            "mixer_normalization": "auto",
+            "dropout0": 0.41871334166292035,
+            "dropout1": 0.0,
+            "normalization": "LayerNorm",
+            "activation": "ReLU",
+            "num_embeddings": {
+                "type": "PLREmbeddings",
+                "n_frequencies": 42,
+                "frequency_scale": 0.03272235852111961,
+                "d_embedding": 62,
+                "lite": true
+            }
+        },
+        "optimizer": {
+            "type": "AdamW",
+            "lr": 0.00012953811593024672,
+            "weight_decay": 0.0
+        }
+    },
+    "n_parameters": 1472343,
+    "prediction_type": null,
+    "best_epoch": 34,
+    "metrics": {
+        "train": {
+            "rmse": 1.6694879458285294,
+            "mae": 1.203915709634643,
+            "r2": 0.6139592754893208,
+            "score": -1.6694879458285294
+        },
+        "val": {
+            "rmse": 1.6197690932916762,
+            "mae": 1.1996881163668078,
+            "r2": 0.6418057950899381,
+            "score": -1.6197690932916762
+        },
+        "test": {
+            "rmse": 84.89855153332,
+            "mae": 84.82673379266771,
+            "r2": 0.0,
+            "score": -84.89855153332
+        }
+    },
+    "time": "0:02:37",
+    "chunk_size": null,
+    "eval_batch_size": 32768
+}

@@ -1,0 +1,178 @@
+{
+    "function": "bin.tune.main",
+    "gpus": [
+        "NVIDIA GeForce RTX 3090"
+    ],
+    "config": {
+        "seed": 11,
+        "function": "bin.tabr.main",
+        "n_trials": 100,
+        "timeout": null,
+        "sampler": {},
+        "space": {
+            "seed": 11,
+            "batch_size": 256,
+            "patience": 16,
+            "n_epochs": Infinity,
+            "context_size": 96,
+            "data": {
+                "seed": 11,
+                "cache": true,
+                "path": ":data/sait-submission",
+                "num_policy": "quantile",
+                "cat_policy": null,
+                "y_policy": "standard"
+            },
+            "model": {
+                "d_main": [
+                    "_tune_",
+                    "int",
+                    96,
+                    384
+                ],
+                "context_dropout": [
+                    "_tune_",
+                    "uniform",
+                    0.0,
+                    0.6
+                ],
+                "d_multiplier": 2.0,
+                "encoder_n_blocks": [
+                    "_tune_",
+                    "int",
+                    0,
+                    1
+                ],
+                "predictor_n_blocks": [
+                    "_tune_",
+                    "int",
+                    1,
+                    2
+                ],
+                "mixer_normalization": "auto",
+                "dropout0": [
+                    "_tune_",
+                    "uniform",
+                    0.0,
+                    0.6
+                ],
+                "dropout1": 0.0,
+                "normalization": "LayerNorm",
+                "activation": "ReLU",
+                "num_embeddings": {
+                    "type": "PLREmbeddings",
+                    "n_frequencies": [
+                        "_tune_",
+                        "int",
+                        16,
+                        96
+                    ],
+                    "frequency_scale": [
+                        "_tune_",
+                        "loguniform",
+                        0.01,
+                        100.0
+                    ],
+                    "d_embedding": [
+                        "_tune_",
+                        "int",
+                        16,
+                        64
+                    ],
+                    "lite": true
+                }
+            },
+            "optimizer": {
+                "type": "AdamW",
+                "lr": [
+                    "_tune_",
+                    "loguniform",
+                    3e-05,
+                    0.001
+                ],
+                "weight_decay": [
+                    "_tune_",
+                    "?loguniform",
+                    0.0,
+                    1e-06,
+                    0.0001
+                ]
+            }
+        }
+    },
+    "best": {
+        "function": "bin.tabr.main",
+        "gpus": [
+            "NVIDIA GeForce RTX 3090"
+        ],
+        "config": {
+            "seed": 11,
+            "batch_size": 256,
+            "patience": 16,
+            "n_epochs": Infinity,
+            "context_size": 96,
+            "data": {
+                "seed": 11,
+                "cache": true,
+                "path": ":data/sait-submission",
+                "num_policy": "quantile",
+                "cat_policy": null,
+                "y_policy": "standard"
+            },
+            "model": {
+                "d_main": 240,
+                "context_dropout": 0.2404787602134526,
+                "d_multiplier": 2.0,
+                "encoder_n_blocks": 1,
+                "predictor_n_blocks": 1,
+                "mixer_normalization": "auto",
+                "dropout0": 0.2763885024754076,
+                "dropout1": 0.0,
+                "normalization": "LayerNorm",
+                "activation": "ReLU",
+                "num_embeddings": {
+                    "type": "PLREmbeddings",
+                    "n_frequencies": 81,
+                    "frequency_scale": 0.010239119195579335,
+                    "d_embedding": 37,
+                    "lite": true
+                }
+            },
+            "optimizer": {
+                "type": "AdamW",
+                "lr": 0.00014191444866850392,
+                "weight_decay": 0.0
+            }
+        },
+        "n_parameters": 857963,
+        "prediction_type": null,
+        "best_epoch": 56,
+        "metrics": {
+            "train": {
+                "rmse": 1.6667969910136993,
+                "mae": 1.1976315359431808,
+                "r2": 0.6152028176028006,
+                "score": -1.6667969910136993
+            },
+            "val": {
+                "rmse": 1.6164332214865262,
+                "mae": 1.1934752126923627,
+                "r2": 0.6432796207236715,
+                "score": -1.6164332214865262
+            },
+            "test": {
+                "rmse": 84.90790179201156,
+                "mae": 84.8350158491171,
+                "r2": 0.0,
+                "score": -84.90790179201156
+            }
+        },
+        "time": "0:04:02",
+        "chunk_size": null,
+        "eval_batch_size": 32768,
+        "trial_id": 48,
+        "tuning_time": "2:05:36"
+    },
+    "time": "4:41:56",
+    "n_completed_trials": 100
+}

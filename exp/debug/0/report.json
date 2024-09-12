@@ -1,0 +1,61 @@
+{
+    "function": "bin.ffn.main",
+    "gpus": [
+        "NVIDIA GeForce RTX 3090"
+    ],
+    "config": {
+        "seed": 0,
+        "batch_size": 256,
+        "patience": 16,
+        "n_epochs": Infinity,
+        "data": {
+            "seed": 0,
+            "cache": true,
+            "path": ":data/sait",
+            "num_policy": "quantile",
+            "cat_policy": null,
+            "y_policy": "standard"
+        },
+        "model": {
+            "num_embeddings": null,
+            "backbone": {
+                "type": "MLP",
+                "n_blocks": 1,
+                "d_layer": 64,
+                "dropout": 0.0,
+                "activation": "ReLU"
+            }
+        },
+        "optimizer": {
+            "type": "AdamW",
+            "lr": 0.001,
+            "weight_decay": 0.0
+        }
+    },
+    "n_parameters": 769,
+    "prediction_type": null,
+    "best_epoch": 48,
+    "metrics": {
+        "train": {
+            "rmse": 1.6807608194973696,
+            "mae": 1.203115268630313,
+            "r2": 0.6102869549484142,
+            "score": -1.6807608194973696
+        },
+        "val": {
+            "rmse": 1.5954425335206561,
+            "mae": 1.2059170412974254,
+            "r2": 0.6290999051819806,
+            "score": -1.5954425335206561
+        },
+        "test": {
+            "rmse": 1.5995318825116216,
+            "mae": 1.1981558790602094,
+            "r2": 0.6486054802822708,
+            "score": -1.5995318825116216
+        }
+    },
+    "time": "0:00:13.285794",
+    "chunk_size": null,
+    "eval_batch_size": 32768
+}

@@ -13,6 +13,8 @@ from torch.nn.parameter import Parameter
 
 from .util import TaskType, is_oom_exception
 
+from .rncloss import RnCLoss
+
 # ======================================================================================
 # >>> modules <<<
 # ======================================================================================
@@ -397,14 +399,19 @@ def set_lr(optimizer: optim.Optimizer, lr: float) -> None:
 # ======================================================================================
 # >>> training <<<
 # ======================================================================================
-def get_loss_fn(task_type: TaskType, **kwargs) -> Callable[..., Tensor]:
-    loss_fn = (
+def get_loss_fn(task_type: TaskType, rncloss: bool, **kwargs) -> Callable[..., Tensor]:
+    if rncloss:
+        loss_fn = RnCLoss(temperature=2, label_diff='l1', feature_sim='l2')
+
+    else:
+        loss_fn = (
         F.binary_cross_entropy_with_logits
         if task_type == TaskType.BINCLASS
         else F.cross_entropy
         if task_type == TaskType.MULTICLASS
         else F.mse_loss
-    )
+        )
+
     return partial(loss_fn, **kwargs) if kwargs else loss_fn
 
 

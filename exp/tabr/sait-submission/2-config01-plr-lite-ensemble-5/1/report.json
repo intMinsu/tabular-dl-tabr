@@ -1,0 +1,35 @@
+{
+    "function": "bin.ensemble.main",
+    "config": {
+        "seeds": [
+            5,
+            6,
+            7,
+            8,
+            9
+        ]
+    },
+    "single_model_function": "bin.tabr.main",
+    "data": ":data/sait-submission",
+    "prediction_type": null,
+    "metrics": {
+        "train": {
+            "rmse": 1.6666360049348101,
+            "mae": 1.198735340341564,
+            "r2": 0.6152771117627089,
+            "score": -1.6666360049348101
+        },
+        "val": {
+            "rmse": 1.61737154050159,
+            "mae": 1.1948985309872597,
+            "r2": 0.6428653672480067,
+            "score": -1.61737154050159
+        },
+        "test": {
+            "rmse": 84.92163336122319,
+            "mae": 84.85038582887682,
+            "r2": 0.0,
+            "score": -84.92163336122319
+        }
+    }
+}

@@ -1,0 +1,37 @@
+seed = 2
+batch_size = 256
+patience = 16
+n_epochs = inf
+context_size = 96
+
+[data]
+seed = 33
+cache = true
+path = ":data/sait-submission"
+num_policy = "quantile"
+cat_policy = "__null__"
+y_policy = "standard"
+
+[model]
+d_main = 145
+context_dropout = 0.5922645339694296
+d_multiplier = 2.0
+encoder_n_blocks = 0
+predictor_n_blocks = 1
+mixer_normalization = "auto"
+dropout0 = 0.08144956528299635
+dropout1 = 0.0
+normalization = "LayerNorm"
+activation = "ReLU"
+
+[model.num_embeddings]
+type = "PLREmbeddings"
+n_frequencies = 87
+frequency_scale = 0.028041566773097288
+d_embedding = 54
+lite = true
+
+[optimizer]
+type = "AdamW"
+lr = 0.0005327022652266498
+weight_decay = 5.054003394663444e-06

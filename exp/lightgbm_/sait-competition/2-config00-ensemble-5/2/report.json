@@ -1,0 +1,35 @@
+{
+    "function": "bin.ensemble.main",
+    "config": {
+        "seeds": [
+            10,
+            11,
+            12,
+            13,
+            14
+        ]
+    },
+    "single_model_function": "bin.catboost_.main",
+    "data": ":data/sait-submission",
+    "prediction_type": null,
+    "metrics": {
+        "train": {
+            "rmse": 1.5755631677221844,
+            "mae": 1.1590948215904608,
+            "r2": 0.6561744499746824,
+            "score": -1.5755631677221844
+        },
+        "val": {
+            "rmse": 1.6208034530620206,
+            "mae": 1.1995784816287407,
+            "r2": 0.641348145909884,
+            "score": -1.6208034530620206
+        },
+        "test": {
+            "rmse": 84.90235838756925,
+            "mae": 84.83069839632765,
+            "r2": 0.0,
+            "score": -84.90235838756925
+        }
+    }
+}

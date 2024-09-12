@@ -1,0 +1,58 @@
+{
+    "function": "bin.catboost_.main",
+    "gpus": [
+        "NVIDIA GeForce RTX 3090",
+        "NVIDIA GeForce RTX 3090",
+        "NVIDIA GeForce RTX 3090",
+        "NVIDIA GeForce RTX 3090"
+    ],
+    "config": {
+        "seed": 2,
+        "data": {
+            "seed": 0,
+            "num_policy": null,
+            "cat_policy": null,
+            "cache": true,
+            "path": ":data/sait-submission",
+            "y_policy": "standard"
+        },
+        "model": {
+            "iterations": 4000,
+            "early_stopping_rounds": 200,
+            "od_pval": 0.001,
+            "bagging_temperature": 0.2521395542071161,
+            "depth": 9,
+            "l2_leaf_reg": 9.051203102297846,
+            "leaf_estimation_iterations": 2,
+            "learning_rate": 0.025887250896045315,
+            "task_type": "CPU",
+            "thread_count": 4
+        },
+        "fit": {
+            "logging_level": "Verbose"
+        }
+    },
+    "prediction_type": null,
+    "time": "0:00:07",
+    "best_iteration": 849,
+    "metrics": {
+        "train": {
+            "rmse": 1.5300380097169637,
+            "mae": 1.1350190671250882,
+            "r2": 0.6757567478068812,
+            "score": -1.5300380097169637
+        },
+        "val": {
+            "rmse": 1.6199681413039406,
+            "mae": 1.1989584201847276,
+            "r2": 0.6417177267020826,
+            "score": -1.6199681413039406
+        },
+        "test": {
+            "rmse": 84.90362038304265,
+            "mae": 84.8319002501724,
+            "r2": 0.0,
+            "score": -84.90362038304265
+        }
+    }
+}

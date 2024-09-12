@@ -1,0 +1,37 @@
+seed = 4
+batch_size = 256
+patience = 16
+n_epochs = inf
+context_size = 96
+
+[data]
+seed = 22
+cache = true
+path = ":data/sait"
+num_policy = "quantile"
+cat_policy = "__null__"
+y_policy = "standard"
+
+[model]
+d_main = 320
+context_dropout = 0.38897047124470463
+d_multiplier = 2.0
+encoder_n_blocks = 1
+predictor_n_blocks = 1
+mixer_normalization = "auto"
+dropout0 = 0.11301195802716613
+dropout1 = 0.0
+normalization = "LayerNorm"
+activation = "ReLU"
+
+[model.num_embeddings]
+type = "PLREmbeddings"
+n_frequencies = 49
+frequency_scale = 0.04732775101266245
+d_embedding = 51
+lite = true
+
+[optimizer]
+type = "AdamW"
+lr = 0.00018963902102551221
+weight_decay = 0.0

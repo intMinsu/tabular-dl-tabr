@@ -1,0 +1,71 @@
+{
+    "function": "bin.tabr.main",
+    "gpus": [
+        "NVIDIA GeForce RTX 3090"
+    ],
+    "config": {
+        "seed": 2,
+        "batch_size": 256,
+        "patience": 16,
+        "n_epochs": Infinity,
+        "context_size": 96,
+        "data": {
+            "seed": 11,
+            "cache": true,
+            "path": ":data/sait-submission",
+            "num_policy": "quantile",
+            "cat_policy": null,
+            "y_policy": "standard"
+        },
+        "model": {
+            "d_main": 240,
+            "context_dropout": 0.2404787602134526,
+            "d_multiplier": 2.0,
+            "encoder_n_blocks": 1,
+            "predictor_n_blocks": 1,
+            "mixer_normalization": "auto",
+            "dropout0": 0.2763885024754076,
+            "dropout1": 0.0,
+            "normalization": "LayerNorm",
+            "activation": "ReLU",
+            "num_embeddings": {
+                "type": "PLREmbeddings",
+                "n_frequencies": 81,
+                "frequency_scale": 0.010239119195579335,
+                "d_embedding": 37,
+                "lite": true
+            }
+        },
+        "optimizer": {
+            "type": "AdamW",
+            "lr": 0.00014191444866850392,
+            "weight_decay": 0.0
+        }
+    },
+    "n_parameters": 857963,
+    "prediction_type": null,
+    "best_epoch": 9,
+    "metrics": {
+        "train": {
+            "rmse": 1.672335666455091,
+            "mae": 1.2061740883086998,
+            "r2": 0.6126411744912855,
+            "score": -1.672335666455091
+        },
+        "val": {
+            "rmse": 1.6214998109715892,
+            "mae": 1.200707037374137,
+            "r2": 0.6410399068472434,
+            "score": -1.6214998109715892
+        },
+        "test": {
+            "rmse": 84.91882339652993,
+            "mae": 84.84551192065692,
+            "r2": 0.0,
+            "score": -84.91882339652993
+        }
+    },
+    "time": "0:01:26",
+    "chunk_size": null,
+    "eval_batch_size": 32768
+}
